@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="wrapper">
+        <a href="/logout" id="log_out">Log Out</a>
+        <form action="/trips/new">
+            <button type="submit" id="create_trip_button">Create a New Trip!</button>
+        </form>
+        <h1>Welcome, {{logged_in.first_name}}</h1>
+        <br>
+        <p>Your trips:</p>
+        <table>
+            <tr>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Plan</th>
+                <th>Actions</th>
+            </tr>
+            {% for a in all_trips %}
+            <tr>
+                <td>{{a.destination}}</td>
+                <td>{{a.start_date}}</td>
+                <td>{{a.end_date}}</td>
+                <td>{{a.plan}}</td>
+                <td><a href="/delete/{{a.id}}">Remove</a> | <a href="/edit/{{a.id}}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

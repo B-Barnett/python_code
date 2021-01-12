@@ -1,0 +1,21 @@
+#wrapper{
+    margin: 0 auto;
+    width: 800px;
+    height: 900px;
+}
+.form{
+    margin: 10px;
+}
+table, td, th {
+    border: 1px solid black;
+}
+th, td{
+    padding: 10px;
+}
+#log_out{
+    float: right;
+}
+#create_trip_button{
+    float: right;
+    margin-right: 10px;
+}
