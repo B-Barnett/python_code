@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Books</title>
+    <style>
+        .my-title{
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Add a Book</h1>
+                <form action="/books_create" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <label for="input" class="my-title">Title</label>
+                    <input type="text" name="form_title">
+                </div>
+                <br>
+                <div class="row">
+                    <label for="input">Description</label>
+                    <textarea name="form_description" cols="40" rows="5"></textarea>
+                </div>
+                    <button type="submit" class="btn btn-primary" >Add</button>
+                </form>
+                <br>
+                <a class="btn btn-primary" href="/authors">Add an Author</a>
+            </div>
+            <div class="col">
+                <div class="row my-row justify-content-end">
+                    <table class="table-bordered w-50 h-50">
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Action</th>
+                        </tr>
+                        {% for b in all_books %}
+                        <tr>
+                            <td>{{b.id}}</td>
+                            <td>{{b.title}}</td>
+                            <td><a href="/books/{{b.id}}">View</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

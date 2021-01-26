@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h2>{{author_to_show.first_name}} {{author_to_show.last_name}}</h2>
+    <h3>ID: {{author_to_show.id}}</h3>
+    <h3>Notes: {{author_to_show.notes}}</h3>
+    <br>
+    <p>Books</p>
+    {% for a in author_to_show.books.all %}
+    <ul>
+        <li>{{a.title}}</li>
+    </ul>
+    {% endfor %}
+    <form action="/add_book_to_author/{{author_to_show.id}}" method="POST">
+        {% csrf_token %}
+        <select name="select_book">
+            {% for b in book_to_add %}
+            <option value="{{b.id}}">{{b.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="hidden" name="author_id" value={{author_to_show.id}}>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+    <br>
+    <a href="/authors" class="btn btn-primary" >Go Back</a>
+</body>
+</html>
