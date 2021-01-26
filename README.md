@@ -1,4 +1,5 @@
 # python_code
+Different projects using django and python.
 echo "# python_code" >> README.md
 git init
 git add README.md
