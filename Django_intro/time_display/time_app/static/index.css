@@ -1,0 +1,11 @@
+.container{
+    margin: 0 auto;
+    width: 700px;
+    height: 145px;
+    background-color: mediumpurple;
+}
+.text{
+    font-size: 35px;
+    text-align: center;
+    margin-top: 60px;
+}
