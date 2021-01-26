@@ -1,0 +1,33 @@
+#wrapper{
+    margin: 0 auto;
+    width: 1000px;
+    height: 1000px;
+}
+.text{
+    text-align: center;
+}
+input{
+    margin-left: 410px;
+}
+p{
+    text-align: center;
+    padding-top: 65px;
+}
+#low{
+    height: 150px;
+    width: 150px;
+    margin-left: 425px;
+    background-color: red;
+}
+#high{
+    height: 150px;
+    width: 150px;
+    margin-left: 425px;
+    background-color: red;
+}
+#right{
+    height: 150px;
+    width: 150px;
+    margin-left: 425px;
+    background-color: green;
+}
