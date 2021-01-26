@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h2>Registration</h2>
+        {% if messages %}
+        <ul>
+            {% for m in messages %}
+                <li>{{m}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/register" method="POST" id="registration">
+            {% csrf_token %}
+            <div class="form">
+                <label for="form_first_name">Last Name</label>
+                <input type="text" name="form_first_name">
+            </div>
+            <div class="form">
+                <label for="form_last_name">First Name</label>
+                <input type="text" name="form_last_name">
+            </div>
+            <div class="form">
+                <label for="form_email">Your Email</label>
+                <input type="text" name="form_email">
+            </div>
+            <div class="form">
+                <label for="form_password">Your Password</label>
+                <input type="password" name="form_password">
+                <small>Password must be at least 8 characters</small>
+            </div>
+            <div class="form">
+                <label for="form_password_confirm">Confirm Password</label>
+                <input type="password" name="form_password_confirm">
+            </div>
+            <input type="submit" value="Register">
+        </form>
+        <br>
+        <h2>Login</h2>
+        <form action="/login" method="POST" id="login">
+            {% csrf_token %}
+            <div class="form">
+                <label for="email">Email</label>
+                <input type="text" name="email">
+            </div>
+            <div class="form">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>
