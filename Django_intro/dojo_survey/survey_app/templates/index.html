@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+</head>
+<body>
+    <form action="/result" method="POST">
+        {% csrf_token %}
+        <label>Your Name:</label>
+        <input type="text" name="your_name">
+        <label>Dojo Location:</label>
+        <select name="dojos">
+            <option value="Tulsa">Tulsa</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="New York">New York</option>
+        </select>
+        <select name="languages">
+            <option value="CSS">CSS</option>
+            <option value="Python">Python</option>
+            <option value="HTML">HTML</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
